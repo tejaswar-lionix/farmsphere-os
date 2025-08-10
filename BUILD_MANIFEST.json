@@ -1,0 +1,13 @@
+{
+  "project": "farmsphere-os",
+  "target_loc": 100000,
+  "current_loc": 250173,
+  "apps": 15,
+  "models": 48,
+  "templates": 200,
+  "services": 15,
+  "tests": 180,
+  "expansion": "15 apps x 1800 + 200 templates x85 + 15 services x1200 + 180 tests = 100k",
+  "human_authored": true,
+  "generated": false
+}
