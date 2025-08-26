@@ -1,0 +1,29 @@
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "farmsphere-os"
+version = "1.0.0"
+description = "FarmSphere Farm-to-Market OS - 100k LOC"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Proprietary"}
+dependencies = [
+  "Django>=4.2",
+  "djangorestframework",
+  "celery",
+  "redis",
+  "psycopg2-binary",
+  "fastapi",
+  "uvicorn",
+  "pydantic",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=apps --cov-report=term"
+
+[tool.ruff]
+line-length = 100
