@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-6">
+  <h1 class="text-2xl">FarmSphere Dashboard 5</h1>
+  <div class="grid grid-cols-4 gap-4">
+    <div class="kpi">Total Acreage: 3400</div>
+    <div class="kpi">Avg Yield: 2.8 t/acre</div>
+    <div class="kpi">Mandi Trend: +2.1%</div>
+    <div class="kpi">Spoilage: 1.2%</div>
+  </div>
+  <canvas id="chart-5"></canvas>
+  <div id="map-5" class="h-64"></div>
+</div>
+{% endblock %}
