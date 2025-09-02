@@ -98,3 +98,5 @@ Proprietary — All rights reserved (FarmSphere Labs). No open-source license.
 - Initial FarmSphere scaffold — human commit
 - Added mandi price predictor and coldchain spoilage engine — tejas
 - Fixed subsidy DBT UTR validation and farmer ledger rounding — tejas
+
+<!-- commit 33: feat: finalize analytics ranking and report generation -->
