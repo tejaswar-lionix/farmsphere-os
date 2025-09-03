@@ -100,3 +100,5 @@ Proprietary — All rights reserved (FarmSphere Labs). No open-source license.
 - Fixed subsidy DBT UTR validation and farmer ledger rounding — tejas
 
 <!-- commit 33: feat: finalize analytics ranking and report generation -->
+
+<!-- commit 34: chore: bump version to 1.0.0 - ready for TrainPlex -->
