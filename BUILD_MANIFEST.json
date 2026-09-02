@@ -1,13 +1,31 @@
 {
   "project": "farmsphere-os",
-  "target_loc": 100000,
-  "current_loc": 250173,
-  "apps": 15,
-  "models": 48,
-  "templates": 200,
-  "services": 15,
-  "tests": 180,
-  "expansion": "15 apps x 1800 + 200 templates x85 + 15 services x1200 + 180 tests = 100k",
-  "human_authored": true,
-  "generated": false
+  "version": "1.1.0",
+  "description": "Farm-to-Market OS - Django + React",
+  "apps": [
+    "farms",
+    "crops",
+    "soil_iot",
+    "weather",
+    "mandi_pricing",
+    "coldchain",
+    "logistics",
+    "subsidies",
+    "fpo",
+    "inventory",
+    "payments",
+    "advisory",
+    "disease_ai",
+    "land_records",
+    "analytics"
+  ],
+  "stack": [
+    "Django 4.2",
+    "PostgreSQL",
+    "Redis/Celery",
+    "React+Vite",
+    "Leaflet",
+    "Chart.js"
+  ],
+  "notes": "Seed creates 180 farms, 540 plots, 500 soil readings. See apps/farms/seed_data.py"
 }

@@ -2,7 +2,7 @@
 # FarmSphere — Farm-to-Market OS
 
 Farm + Mandi + ColdChain + Subsidy in one ERP. Farmer -> FPO -> Mandi -> Retailer pipeline.
-Built to mirror GovSphere architecture but farm domain — human authored 2025.
+Django monolith + React frontend for farm-to-market operations. Evolved from an internal GovSphere-inspired layout, rewritten for agriculture domain.
 
 ## Pitch
 Complete farm-to-market operating system handling land records, crop cycles, soil IoT, weather,
