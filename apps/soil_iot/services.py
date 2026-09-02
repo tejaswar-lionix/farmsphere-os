@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio, json, time, uuid, logging, re, hashlib
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
-from apps.soil_iot.models_0 import SoilIotEntity0_0
+from apps.soil_iot.models import SoilReadingEntity0_0
 logger = logging.getLogger(__name__)
 
 @dataclass

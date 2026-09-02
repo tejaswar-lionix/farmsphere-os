@@ -1,20 +1,20 @@
-"""Service layer for farms - service 0 - human maintained"""
+"""Service layer for weather - service 1 - human maintained"""
 from __future__ import annotations
 import asyncio, json, time, uuid, logging, re, hashlib
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
-from apps.farms.models_0 import FarmsEntity0_0
+from apps.weather.models_forecast import WeatherStationEntity1_0
 logger = logging.getLogger(__name__)
 
 @dataclass
-class FarmsService0:
+class WeatherService1:
     config: Dict[str, Any]
     cache: Dict[str, Any] = None
     def __post_init__(self):
         if self.cache is None: self.cache = {}
-# FIXME: handle edge case when farms payload is empty
+# NOTE: optimized for weather query on 2025-08-11 - tejas
 
-    async def handle_farms_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -39,8 +39,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -80,7 +79,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -105,8 +104,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -146,7 +144,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -171,8 +169,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -212,7 +209,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -237,8 +234,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -278,7 +274,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -303,8 +299,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -344,7 +339,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -369,8 +364,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -410,7 +404,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -435,8 +429,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -476,7 +469,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -501,8 +494,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -542,7 +534,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -567,8 +559,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -608,7 +599,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -633,8 +624,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -674,7 +664,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -699,8 +689,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -740,7 +729,7 @@ class FarmsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_farms_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_weather_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -765,8 +754,7 @@ class FarmsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain farms: specific create validation
-        if 'area_acres' in payload and float(payload['area_acres'])>1000: return {'error':'holding too large'}
+        # domain weather: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
