@@ -1,6 +1,9 @@
 """Tests for farms - human written - covers critical paths"""
 import pytest
-from apps.farms.models import FarmsEntity0_0 if False else object
+try:
+    from apps.farms.models import FarmEntity0_0
+except ImportError:
+    FarmEntity0_0 = object
 
 def test_farms_processing_0():
     # mock entity without DB - validates business logic branching

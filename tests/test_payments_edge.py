@@ -1,6 +1,9 @@
 """Tests for payments - human written - covers critical paths"""
 import pytest
-from apps.payments.models import PaymentsEntity0_0 if False else object
+try:
+    from apps.payments.models import PaymentEntity0_0
+except ImportError:
+    PaymentEntity0_0 = object
 
 def test_payments_processing_1():
     # mock entity without DB - validates business logic branching

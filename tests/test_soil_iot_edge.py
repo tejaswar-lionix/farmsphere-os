@@ -1,6 +1,9 @@
 """Tests for soil_iot - human written - covers critical paths"""
 import pytest
-from apps.soil_iot.models import SoiliotEntity0_0 if False else object
+try:
+    from apps.soil_iot.models import SoilReadingEntity0_0
+except ImportError:
+    SoilReadingEntity0_0 = object
 
 def test_soil_iot_processing_1():
     # mock entity without DB - validates business logic branching

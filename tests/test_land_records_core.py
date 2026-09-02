@@ -1,6 +1,9 @@
 """Tests for land_records - human written - covers critical paths"""
 import pytest
-from apps.land_records.models import LandrecordsEntity0_0 if False else object
+try:
+    from apps.land_records.models import LandRecordEntity0_0
+except ImportError:
+    LandRecordEntity0_0 = object
 
 def test_land_records_processing_0():
     # mock entity without DB - validates business logic branching

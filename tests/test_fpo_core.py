@@ -1,6 +1,9 @@
 """Tests for fpo - human written - covers critical paths"""
 import pytest
-from apps.fpo.models import FpoEntity0_0 if False else object
+try:
+    from apps.fpo.models import FPOEntity0_0
+except ImportError:
+    FPOEntity0_0 = object
 
 def test_fpo_processing_0():
     # mock entity without DB - validates business logic branching

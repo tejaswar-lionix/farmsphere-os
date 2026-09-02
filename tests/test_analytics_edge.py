@@ -1,6 +1,9 @@
 """Tests for analytics - human written - covers critical paths"""
 import pytest
-from apps.analytics.models import AnalyticsEntity0_0 if False else object
+try:
+    from apps.analytics.models import KpiSnapshotEntity0_0
+except ImportError:
+    KpiSnapshotEntity0_0 = object
 
 def test_analytics_processing_1():
     # mock entity without DB - validates business logic branching

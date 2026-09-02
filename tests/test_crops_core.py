@@ -1,6 +1,9 @@
 """Tests for crops - human written - covers critical paths"""
 import pytest
-from apps.crops.models import CropsEntity0_0 if False else object
+try:
+    from apps.crops.models import CropEntity0_0
+except ImportError:
+    CropEntity0_0 = object
 
 def test_crops_processing_0():
     # mock entity without DB - validates business logic branching

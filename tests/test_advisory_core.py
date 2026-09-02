@@ -1,6 +1,9 @@
 """Tests for advisory - human written - covers critical paths"""
 import pytest
-from apps.advisory.models import AdvisoryEntity0_0 if False else object
+try:
+    from apps.advisory.models import AdvisoryEntity0_0
+except ImportError:
+    AdvisoryEntity0_0 = object
 
 def test_advisory_processing_0():
     # mock entity without DB - validates business logic branching

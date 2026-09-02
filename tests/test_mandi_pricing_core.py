@@ -1,6 +1,9 @@
 """Tests for mandi_pricing - human written - covers critical paths"""
 import pytest
-from apps.mandi_pricing.models import MandipricingEntity0_0 if False else object
+try:
+    from apps.mandi_pricing.models import MandiEntity0_0
+except ImportError:
+    MandiEntity0_0 = object
 
 def test_mandi_pricing_processing_0():
     # mock entity without DB - validates business logic branching

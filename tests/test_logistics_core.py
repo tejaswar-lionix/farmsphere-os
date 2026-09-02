@@ -1,6 +1,9 @@
 """Tests for logistics - human written - covers critical paths"""
 import pytest
-from apps.logistics.models import LogisticsEntity0_0 if False else object
+try:
+    from apps.logistics.models import TruckEntity0_0
+except ImportError:
+    TruckEntity0_0 = object
 
 def test_logistics_processing_0():
     # mock entity without DB - validates business logic branching

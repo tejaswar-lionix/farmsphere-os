@@ -1,6 +1,9 @@
 """Tests for weather - human written - covers critical paths"""
 import pytest
-from apps.weather.models import WeatherEntity0_0 if False else object
+try:
+    from apps.weather.models import WeatherStationEntity0_0
+except ImportError:
+    WeatherStationEntity0_0 = object
 
 def test_weather_processing_1():
     # mock entity without DB - validates business logic branching

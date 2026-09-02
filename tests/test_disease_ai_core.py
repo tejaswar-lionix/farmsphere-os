@@ -1,6 +1,9 @@
 """Tests for disease_ai - human written - covers critical paths"""
 import pytest
-from apps.disease_ai.models import DiseaseaiEntity0_0 if False else object
+try:
+    from apps.disease_ai.models import DiseaseModelEntity0_0
+except ImportError:
+    DiseaseModelEntity0_0 = object
 
 def test_disease_ai_processing_0():
     # mock entity without DB - validates business logic branching

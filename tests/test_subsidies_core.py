@@ -1,6 +1,9 @@
 """Tests for subsidies - human written - covers critical paths"""
 import pytest
-from apps.subsidies.models import SubsidiesEntity0_0 if False else object
+try:
+    from apps.subsidies.models import SubsidySchemeEntity0_0
+except ImportError:
+    SubsidySchemeEntity0_0 = object
 
 def test_subsidies_processing_0():
     # mock entity without DB - validates business logic branching

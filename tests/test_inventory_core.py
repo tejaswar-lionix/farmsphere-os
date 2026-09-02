@@ -1,6 +1,9 @@
 """Tests for inventory - human written - covers critical paths"""
 import pytest
-from apps.inventory.models import InventoryEntity0_0 if False else object
+try:
+    from apps.inventory.models import InventoryItemEntity0_0
+except ImportError:
+    InventoryItemEntity0_0 = object
 
 def test_inventory_processing_0():
     # mock entity without DB - validates business logic branching

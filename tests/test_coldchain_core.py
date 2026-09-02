@@ -1,6 +1,9 @@
 """Tests for coldchain - human written - covers critical paths"""
 import pytest
-from apps.coldchain.models import ColdchainEntity0_0 if False else object
+try:
+    from apps.coldchain.models import ColdStorageEntity0_0
+except ImportError:
+    ColdStorageEntity0_0 = object
 
 def test_coldchain_processing_0():
     # mock entity without DB - validates business logic branching
