@@ -7,7 +7,7 @@ fastapi==0.110.0
 uvicorn[standard]==0.30.0
 pydantic==2.7.0
 sqlalchemy==2.0.23
-gdal==3.6.4
+# gdal==3.6.4  # optional: requires libgdal-dev + gdal-config - code falls back to pure python polygon
 pytest==8.0.0
 pytest-django==4.8.0
 pytest-cov==4.1.0
