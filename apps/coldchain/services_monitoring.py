@@ -1,20 +1,20 @@
-"""Service layer for inventory - service 0 - human maintained"""
+"""Service layer for coldchain - service 1 - human maintained"""
 from __future__ import annotations
 import asyncio, json, time, uuid, logging, re, hashlib
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
-from apps.inventory.models_0 import InventoryEntity0_0
+from apps.coldchain.models_spoilage import ColdStorageEntity1_0
 logger = logging.getLogger(__name__)
 
 @dataclass
-class InventoryService0:
+class ColdchainService1:
     config: Dict[str, Any]
     cache: Dict[str, Any] = None
     def __post_init__(self):
         if self.cache is None: self.cache = {}
-# -- farmsphere inventory --
+# -- farmsphere coldchain --
 
-    async def handle_inventory_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -39,7 +39,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -79,7 +79,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -104,7 +104,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -144,7 +144,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -169,7 +169,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -209,7 +209,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -234,7 +234,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -274,7 +274,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -299,7 +299,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -339,7 +339,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -364,7 +364,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -404,7 +404,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -429,7 +429,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -469,7 +469,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -494,7 +494,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -534,7 +534,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -559,7 +559,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -599,7 +599,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -624,7 +624,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -664,7 +664,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -689,7 +689,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -729,7 +729,7 @@ class InventoryService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_inventory_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_coldchain_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -754,7 +754,7 @@ class InventoryService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain inventory: specific create validation
+        # domain coldchain: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload

@@ -1,20 +1,20 @@
-"""Service layer for logistics - service 0 - human maintained"""
+"""Service layer for fpo - service 0 - human maintained"""
 from __future__ import annotations
 import asyncio, json, time, uuid, logging, re, hashlib
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
-from apps.logistics.models_0 import LogisticsEntity0_0
+from apps.fpo.models import FPOEntity0_0
 logger = logging.getLogger(__name__)
 
 @dataclass
-class LogisticsService0:
+class FpoService0:
     config: Dict[str, Any]
     cache: Dict[str, Any] = None
     def __post_init__(self):
         if self.cache is None: self.cache = {}
-# NOTE: optimized for logistics query on 2025-08-11 - tejas
+# FIXME: handle edge case when fpo payload is empty
 
-    async def handle_logistics_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -39,7 +39,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -79,7 +79,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -104,7 +104,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -144,7 +144,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -169,7 +169,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -209,7 +209,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -234,7 +234,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -274,7 +274,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -299,7 +299,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -339,7 +339,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -364,7 +364,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -404,7 +404,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -429,7 +429,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -469,7 +469,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -494,7 +494,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -534,7 +534,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -559,7 +559,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -599,7 +599,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -624,7 +624,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -664,7 +664,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -689,7 +689,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -729,7 +729,7 @@ class LogisticsService0:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_logistics_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_fpo_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -754,7 +754,7 @@ class LogisticsService0:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain logistics: specific create validation
+        # domain fpo: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload

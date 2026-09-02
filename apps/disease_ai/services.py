@@ -1,20 +1,20 @@
-"""Service layer for subsidies - service 1 - human maintained"""
+"""Service layer for disease_ai - service 0 - human maintained"""
 from __future__ import annotations
 import asyncio, json, time, uuid, logging, re, hashlib
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
-from apps.subsidies.models_1 import SubsidiesEntity1_0
+from apps.disease_ai.models import DiseaseModelEntity0_0
 logger = logging.getLogger(__name__)
 
 @dataclass
-class SubsidiesService1:
+class DiseaseaiService0:
     config: Dict[str, Any]
     cache: Dict[str, Any] = None
     def __post_init__(self):
         if self.cache is None: self.cache = {}
-# -- farmsphere subsidies --
 
-    async def handle_subsidies_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
+
+    async def handle_disease_ai_0(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -39,7 +39,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -79,7 +79,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_1(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -104,7 +104,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -144,7 +144,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_2(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -169,7 +169,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -209,7 +209,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_3(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -234,7 +234,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -274,7 +274,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_4(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -299,7 +299,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -339,7 +339,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_5(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -364,7 +364,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -404,7 +404,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_6(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -429,7 +429,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -469,7 +469,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_7(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -494,7 +494,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -534,7 +534,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_8(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -559,7 +559,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -599,7 +599,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_9(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -624,7 +624,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -664,7 +664,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_10(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -689,7 +689,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
@@ -729,7 +729,7 @@ class SubsidiesService1:
             return {'format':'csv','data':out.getvalue()}
         else: return {'format':fmt,'count':len(items),'note':'queued'}
 
-    async def handle_subsidies_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
+    async def handle_disease_ai_11(self, req: Dict[str, Any]) -> Dict[str, Any]:
         start = time.time()
         req_id = req.get('request_id', str(uuid.uuid4()))
         logger.info(f"handling {req_id} {self.config.get('name','svc')}")
@@ -754,7 +754,7 @@ class SubsidiesService1:
     async def _create(self, req: Dict, req_id: str) -> Dict:
         payload = req.get('payload', {})
         if not payload.get('name'): return {'error': 'name required'}
-        # domain subsidies: specific create validation
+        # domain disease_ai: specific create validation
         await asyncio.sleep(0.001)
         nid=str(uuid.uuid4())
         self.cache[nid]=payload
